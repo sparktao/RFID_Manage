@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Org.Tao.FW.Application.UserControls.DataImport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Org.Tao.FW.Application.UserControls"
+             xmlns:utils="clr-namespace:Org.Tao.FW.Application.Utils"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <utils:DataToLengthConverter x:Key="DataToLengthConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid>
+            <TextBlock Text="数据导入" FontSize="24" Foreground="{StaticResource Text.Header}" />
+        </Grid>
+        <Grid Grid.Row="1" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="450" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border Padding="7" VerticalAlignment="Stretch"
+                            Margin="10 10 10 10"
+                            BorderBrush="Gray"
+                            BorderThickness="1">
+                            <telerik:Label Content="{Binding FilePath}"
+                               VerticalAlignment="Center"
+                               MaxWidth="500"/>
+                        </Border>
+                        <telerik:RadButton Grid.Column="1" Margin="10 10 10 10" 
+                                           Command="{Binding SelectFileCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <!--<TextBlock Text="{StaticResource GlyphFolderOpen}"
+                                   FontSize="16"/>-->
+                                <TextBlock Text="选择文件" FontFamily="微软雅黑" />
+                            </StackPanel>
+                        </telerik:RadButton>
+                    </Grid>
+                </Grid>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="5 10">
+                    <telerik:RadPathButton Width="100" Content="开始导入" FontFamily="微软雅黑" 
+                                           Command="{Binding StartImportCommand}" 
+                                           HorizontalAlignment="Center"
+                                           ContentPlacement="Left"
+					                       IsEnabled="True"
+					                       Padding="10 5"
+					                       PathGeometry="M0,0L6,0L12,6L6,12L0,12L6,6z">
+                        <telerik:RadPathButton.PathStyle>
+                            <Style TargetType="Path">
+                                <Setter Property="Fill" Value="{telerik:Windows8Resource ResourceKey=AccentBrush}" />
+                                <Setter Property="Stretch" Value="None" />
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </telerik:RadPathButton.PathStyle>
+                    </telerik:RadPathButton>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1" Background="{telerik:FluentResource ResourceKey=AlternativeBrush}">
+                <TextBlock Text="输出结果:" FontSize="14" />
+            </Grid>
+            <TextBox
+                     x:Name="logComponent"
+                     Grid.Row="2" 
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     IsReadOnly="True" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding LogData}">                
+            </TextBox>
+        </Grid>
+        
+    </Grid>
+</UserControl>

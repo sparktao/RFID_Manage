@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>Org.Tao.FW.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\m_rfid.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\m_rfid.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+    <PackageReference Include="Telerik.UI.for.Wpf.NetCore.Xaml" Version="2021.1.119" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DB.Data\DB.Data.csproj" />
+    <ProjectReference Include="..\DB.Model\DB.Model.csproj" />
+    <ProjectReference Include="..\FW.Common\FW.Common.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+﻿<telerik:RadWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+		RenderOptions.BitmapScalingMode="NearestNeighbor"
+		x:Class="Org.Tao.QuickStart.Shell"
+		Header="数据管理工具 - 浏览, 导入导出, 统计" FontFamily="微软雅黑"
+        d:DesignHeight="1024" d:DesignWidth="1280" Width="1368" Height="800" SnapsToDevicePixels="True"
+                   xmlns:local="clr-namespace:Org.Tao.QuickStart;assembly=TelerikWpfApp2"
+        WindowStartupLocation="CenterScreen">
+	<Border>
+        <Grid>
+            <ContentControl x:Name="ApplicationContentPlaceholder" />            
+        </Grid>
+    </Border>
+</telerik:RadWindow>

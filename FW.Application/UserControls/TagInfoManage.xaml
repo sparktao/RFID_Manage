@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="Org.Tao.FW.Application.UserControls.TagInfoManage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Org.Tao.FW.Application.UserControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" FontFamily="微软雅黑"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>        
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <TextBlock Text="标签管理" FontSize="24" Foreground="{StaticResource Text.Header}" />
+        </Grid>
+        <Grid Grid.Row="1" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Margin="0,5,0,0">
+                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+							   Content="删除所选的记录"
+							   Margin="0,0,5,0"
+							   Command="telerikGrid:RadGridViewCommands.Delete"
+							   CommandTarget="{Binding ElementName=RadGridView1}" />
+                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+							   Content="新增"
+							   Margin="0,0,5,0"
+							   Command="telerikGrid:RadGridViewCommands.BeginInsert"
+							   CommandTarget="{Binding ElementName=RadGridView1}" />
+                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+							   Content="保存新增和编辑"
+							   Margin="0,0,5,0"
+							   Command="telerikGrid:RadGridViewCommands.CommitEdit"
+							   CommandTarget="{Binding ElementName=RadGridView1}" />
+                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+							   Content="取消新增和编辑"
+							   Command="telerikGrid:RadGridViewCommands.CancelRowEdit"
+							   CommandTarget="{Binding ElementName=RadGridView1}" />
+            </StackPanel>
+            <telerik:RadBusyIndicator x:Name="busyIndicator" Grid.Row="1" BusyContent="数据等待中" IsBusy="{Binding IsBusy}" IsIndeterminate="True">
+                <telerik:RadGridView x:Name="RadGridView1" GroupRenderMode="Flat" FontFamily="微软雅黑"
+							 ItemsSource="{Binding TagList}"
+                             NewRowPosition="None" 
+							 AlternationCount="2" AlternateRowBackground="#FFF4F4F4"	
+                             ShowGroupPanel="False"
+							 AutoGenerateColumns="False"
+							 Margin="0,5,0,0"
+							 ActionOnLostFocus="None"							 
+							 CanUserFreezeColumns="False"
+							 RowIndicatorVisibility="Collapsed">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding TagName}"
+											Header="标签号" MinWidth="300" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding FishClassName}"
+											Header="鱼类名称" MinWidth="300" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding FishWeight}"
+											Header="重量" MinWidth="100"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding FishHeight}"
+											Header="长度" MinWidth="100"/>
+                    </telerik:RadGridView.Columns>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Deleted">
+                            <i:CallMethodAction MethodName="BroadCastGridView_Deleted" TargetObject="{Binding}" />
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="RowEditEnded">
+                            <i:CallMethodAction MethodName="BroadCastGridView_RowEditEnded" TargetObject="{Binding}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </telerik:RadGridView>
+            </telerik:RadBusyIndicator>
+            <telerik:RadDataPager Name="pager"
+							    ItemCount="{Binding TotalCounts}"         
+                                PageIndex="{Binding PageNumber, Mode=TwoWay}"         
+							    PageSize="15"
+							    Grid.Row="2" IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric, Text"/>
+        </Grid>
+
+    </Grid>
+    
+</UserControl>
