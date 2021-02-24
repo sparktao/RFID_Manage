@@ -31,7 +31,7 @@
                             <Setter Property="VerticalAlignment" Value="Center" />
                             <Setter Property="HorizontalAlignment" Value="Left" />
                             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                            <Setter Property="Background" Value="LightGray" />
+                            <Setter Property="Background" Value="#FFF4F4F4" />
                             <Setter Property="Cursor" Value="Hand" />
                             <Setter Property="Template">
                                 <Setter.Value>
