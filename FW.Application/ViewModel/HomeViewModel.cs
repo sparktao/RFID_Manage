@@ -64,7 +64,13 @@ namespace Org.Tao.FW.Application
             
             PageLoader.Instance.Initialize();
             PageLoader.Instance.PropertyChanged += OnPageLoaderPropertyChanged;
-            PageLoader.Instance.PageInstantiated += OnPageLoaderExampleInstantiated;
+            PageLoader.Instance.PageInstantiated += OnPageLoaderExampleInstantiated;            
+        }
+
+        public void initData()
+        {
+            // 初始化第一个页面
+            NavigationService.Instance.Navigate(ApplicationView.Home, this.Menus[0].NavigationParameter as IPageInfo);
         }
 
         public bool IsMenuExpanded { get; set; }

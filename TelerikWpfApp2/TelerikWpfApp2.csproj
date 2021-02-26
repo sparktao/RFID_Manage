@@ -24,6 +24,9 @@
     <Generator>MSBuild:Compile</Generator>
     <SubType>Designer</SubType>
   </ApplicationDefinition>
+  <Page Include="NoLicenseWin.xaml">
+    <Generator>MSBuild:Compile</Generator>
+  </Page>
   <Page Include="Shell.xaml">
     <Generator>MSBuild:Compile</Generator>
   </Page>
@@ -32,6 +35,7 @@
     <SubType>Code</SubType>
   </Compile>
   <Compile Include="CustomLocalizationManager.cs" />
+  <Compile Include="NoLicenseWin.xaml.cs" />
   <Compile Include="QSFSplashScreenManager.cs" />
   <Compile Include="Shell.xaml.cs" />
 </ItemGroup>
@@ -53,6 +57,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\menu\m_table.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Product.ico" />

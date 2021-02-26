@@ -27,6 +27,7 @@ namespace Org.Tao.FW.Application
 		private void OnHomeLoaded(object sender, RoutedEventArgs e)
 		{
 			this.Loaded -= this.OnHomeLoaded;
+			((HomeViewModel)this.DataContext).initData();
 		}
 
 		public override void OnNavigatedTo(object parameter)

@@ -57,5 +57,6 @@
             <telerik:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"/>
             
         </ResourceDictionary>
-    </Application.Resources>
+    </Application.Resources>   
+
 </Application>
