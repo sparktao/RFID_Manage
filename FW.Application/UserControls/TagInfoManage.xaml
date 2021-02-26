@@ -7,7 +7,7 @@
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-             mc:Ignorable="d" FontFamily="微软雅黑"
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>        
     </UserControl.Resources>
@@ -26,30 +26,34 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal"
-					HorizontalAlignment="Center"
-					Margin="0,5,0,0">
-                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+					HorizontalAlignment="Right"
+					Margin="0,5,10,0">
+                <telerik:RadButton Width="150" telerik:StyleManager.Theme="Fluent"
 							   Content="删除所选的记录"
 							   Margin="0,0,5,0"
 							   Command="telerikGrid:RadGridViewCommands.Delete"
 							   CommandTarget="{Binding ElementName=RadGridView1}" />
-                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+                <telerik:RadButton Width="150" telerik:StyleManager.Theme="Fluent"
 							   Content="新增"
 							   Margin="0,0,5,0"
 							   Command="telerikGrid:RadGridViewCommands.BeginInsert"
 							   CommandTarget="{Binding ElementName=RadGridView1}" />
-                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+                <telerik:RadButton Width="150" telerik:StyleManager.Theme="Fluent"
 							   Content="保存新增和编辑"
 							   Margin="0,0,5,0"
 							   Command="telerikGrid:RadGridViewCommands.CommitEdit"
 							   CommandTarget="{Binding ElementName=RadGridView1}" />
-                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+                <telerik:RadButton Width="150" telerik:StyleManager.Theme="Fluent"
 							   Content="取消新增和编辑"
 							   Command="telerikGrid:RadGridViewCommands.CancelRowEdit"
 							   CommandTarget="{Binding ElementName=RadGridView1}" />
             </StackPanel>
-            <telerik:RadBusyIndicator x:Name="busyIndicator" Grid.Row="1" BusyContent="数据等待中" IsBusy="{Binding IsBusy}" IsIndeterminate="True">
-                <telerik:RadGridView x:Name="RadGridView1" GroupRenderMode="Flat" FontFamily="微软雅黑"
+            <telerik:RadBusyIndicator x:Name="busyIndicator" 
+                                      telerik:StyleManager.Theme="Fluent"
+                                      Grid.Row="1" BusyContent="数据等待中" 
+                                      IsBusy="{Binding IsBusy}" IsIndeterminate="True">
+                <telerik:RadGridView x:Name="RadGridView1" GroupRenderMode="Flat"
+                             telerik:StyleManager.Theme="Fluent"
 							 ItemsSource="{Binding TagList}"
                              NewRowPosition="None" 
 							 AlternationCount="2" AlternateRowBackground="#FFF4F4F4"	
@@ -61,13 +65,13 @@
 							 RowIndicatorVisibility="Collapsed">
                     <telerik:RadGridView.Columns>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding TagName}"
-											Header="标签号" MinWidth="300" />
+											Header="标签号" MinWidth="300" IsFilterable="False"/>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding FishClassName}"
-											Header="鱼类名称" MinWidth="300" />
+											Header="鱼类名称" MinWidth="300" IsFilterable="False"/>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding FishWeight}"
-											Header="重量" MinWidth="100"/>
+											Header="重量" MinWidth="100" IsFilterable="False"/>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding FishHeight}"
-											Header="长度" MinWidth="100"/>
+											Header="长度" MinWidth="100" IsFilterable="False"/>
                     </telerik:RadGridView.Columns>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Deleted">
@@ -79,7 +83,7 @@
                     </i:Interaction.Triggers>
                 </telerik:RadGridView>
             </telerik:RadBusyIndicator>
-            <telerik:RadDataPager Name="pager"
+            <telerik:RadDataPager Name="pager" telerik:StyleManager.Theme="Fluent"
 							    ItemCount="{Binding TotalCounts}"         
                                 PageIndex="{Binding PageNumber, Mode=TwoWay}"         
 							    PageSize="15"

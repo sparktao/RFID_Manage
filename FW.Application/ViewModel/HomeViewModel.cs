@@ -59,7 +59,7 @@ namespace Org.Tao.FW.Application
             this.Menus = new List<MenuInfo>();
             this.Menus.Add(new MenuInfo("数据导入", "/Images/menu/m_import.png", new IPageInfo { Text = "DataImport", Name = "Org.Tao.FW.Application.UserControls.DataImport", PackageName = "FW.Application" }));
             this.Menus.Add(new MenuInfo("数据浏览", "/Images/menu/m_table.png", new IPageInfo { Text = "TagDataManage", Name = "Org.Tao.FW.Application.UserControls.TagDataManage", PackageName = "FW.Application" }));
-            this.Menus.Add(new MenuInfo("分析统计", "/Images/menu/m_statistic.png", null));
+            this.Menus.Add(new MenuInfo("分析统计", "/Images/menu/m_statistic.png", new IPageInfo { Text = "DataStatsPivot", Name = "Org.Tao.FW.Application.UserControls.DataStatsPivot", PackageName = "FW.Application" }));
             this.Menus.Add(new MenuInfo("标签管理", "/Images/menu/m_barcode.png", new IPageInfo { Text= "TagInfoManage", Name= "Org.Tao.FW.Application.UserControls.TagInfoManage", PackageName= "FW.Application" }));
             
             PageLoader.Instance.Initialize();

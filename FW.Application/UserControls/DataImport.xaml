@@ -35,7 +35,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="4*" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
                         <Border Padding="7" VerticalAlignment="Stretch"
                             Margin="10 10 10 10"
@@ -45,24 +45,26 @@
                                VerticalAlignment="Center"
                                MaxWidth="500"/>
                         </Border>
-                        <telerik:RadButton Grid.Column="1" Margin="10 10 10 10" 
+                        <telerik:RadButton telerik:StyleManager.Theme="Fluent"
+                                           Grid.Column="1" Margin="10 10 10 10" 
                                            Command="{Binding SelectFileCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <!--<TextBlock Text="{StaticResource GlyphFolderOpen}"
                                    FontSize="16"/>-->
-                                <TextBlock Text="选择文件" FontFamily="微软雅黑" />
+                                <TextBlock Text="选择文件" />
                             </StackPanel>
                         </telerik:RadButton>
                     </Grid>
                 </Grid>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="5 10">
-                    <telerik:RadPathButton Width="100" Content="开始导入" FontFamily="微软雅黑" 
+                    <telerik:RadPathButton Width="100" Content="开始导入"
                                            Command="{Binding StartImportCommand}" 
                                            HorizontalAlignment="Center"
                                            ContentPlacement="Left"
 					                       IsEnabled="True"
 					                       Padding="10 5"
-					                       PathGeometry="M0,0L6,0L12,6L6,12L0,12L6,6z">
+					                       PathGeometry="M0,0L6,0L12,6L6,12L0,12L6,6z"
+                                           telerik:StyleManager.Theme="Fluent">
                         <telerik:RadPathButton.PathStyle>
                             <Style TargetType="Path">
                                 <Setter Property="Fill" Value="{telerik:Windows8Resource ResourceKey=AccentBrush}" />
@@ -84,7 +86,8 @@
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
                      IsReadOnly="True" 
                      TextWrapping="Wrap" 
-                     Text="{Binding LogData}">                
+                     Text="{Binding LogData}"
+                     telerik:StyleManager.Theme="Fluent">                
             </TextBox>
         </Grid>
         

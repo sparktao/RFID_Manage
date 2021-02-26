@@ -26,7 +26,6 @@ namespace Org.Tao.QuickStart
             {
                 this.ImagePath = "pack://application:,,,/SplashScreen3.jpg";
                 this.Content = "加载中";
-                this.FontFamily = new System.Windows.Media.FontFamily("微软雅黑");
                 this.Footer = "";
             }
         }

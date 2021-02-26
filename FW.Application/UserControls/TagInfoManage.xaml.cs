@@ -12,8 +12,7 @@ namespace Org.Tao.FW.Application.UserControls
         public TagInfoManage()
         {
             InitializeComponent();
-            this.DataContext = new TagInfoManageViewModel();           
-
+            this.DataContext = new TagInfoManageViewModel();
             this.Loaded += TagInfoManage_Loaded;
         }
 

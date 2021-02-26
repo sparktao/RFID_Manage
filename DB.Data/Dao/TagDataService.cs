@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Org.Tao.DB.Data.Model;
 using Org.Tao.DB.Model;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Org.Tao.DB.Data.Dao
@@ -17,6 +18,13 @@ namespace Org.Tao.DB.Data.Dao
         public async Task<List<TagData>> Get()
         {
             return await _context.TagDatas.ToListAsync();
+        }
+
+        public async Task<List<TagData>> GetByTagName(string pTerminalName, string pTagName)
+        {
+            return await _context.TagDatas
+                .Where(td => td.TerminalName == pTerminalName && td.TagName == pTagName)
+                .ToListAsync();
         }
 
         public async Task<PaginatedList<TagData>> GetList(int? pageNumber, int pageSize, string sortField, string sortOrder)

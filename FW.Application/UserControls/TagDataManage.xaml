@@ -24,12 +24,14 @@
             <StackPanel Orientation="Horizontal"
 					HorizontalAlignment="Center"
 					Margin="0,5,0,0">
-                <telerik:RadButton Width="150" FontFamily="微软雅黑"
+                <telerik:RadButton x:Name="queryButton" Width="150"
 							   Content="查询"
-							   Margin="0,0,5,0" />                
+							   Margin="0,0,5,0" telerik:StyleManager.Theme="Fluent"/>                
             </StackPanel>
-            <telerik:RadBusyIndicator x:Name="busyIndicator" Grid.Row="1" BusyContent="数据等待中" IsBusy="{Binding IsBusy}" IsIndeterminate="True">
-                <telerik:RadGridView x:Name="RadGridView1" GroupRenderMode="Flat" FontFamily="微软雅黑"
+            <telerik:RadBusyIndicator x:Name="busyIndicator" Grid.Row="1" 
+                                      telerik:StyleManager.Theme="Fluent"
+                                      BusyContent="数据等待中" IsBusy="{Binding IsBusy}" IsIndeterminate="True">
+                <telerik:RadGridView x:Name="RadGridView1" GroupRenderMode="Flat" telerik:StyleManager.Theme="Fluent"
 							 ItemsSource="{Binding TagList}"                                     
                              NewRowPosition="None" 
 							 AlternationCount="2" AlternateRowBackground="#FFF4F4F4"	
@@ -41,19 +43,19 @@
 							 RowIndicatorVisibility="Collapsed">
                     <telerik:RadGridView.Columns>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding TerminalName}"
-											Header="终端名称" MinWidth="150" />
+											Header="终端名称" MinWidth="150" IsFilterable="False" />
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding TagName}"
-											Header="标签号" MinWidth="300" />
+											Header="标签号" MinWidth="300" IsFilterable="False"/>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding RecordDateTime}"
-											Header="日期时间" MinWidth="300" />
+											Header="日期时间" MinWidth="300" IsFilterable="False"/>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding FlagColumn1}"
-											Header="标记字段1" MinWidth="100"/>
+											Header="标记字段1" MinWidth="100" IsFilterable="False"/>
                         <telerik:GridViewDataColumn DataMemberBinding="{Binding FlagColumn2}"
-											Header="标记字段2" MinWidth="100"/>
+											Header="标记字段2" MinWidth="100" IsFilterable="False"/>
                     </telerik:RadGridView.Columns>                   
                 </telerik:RadGridView>
             </telerik:RadBusyIndicator>
-            <telerik:RadDataPager Name="pager"
+            <telerik:RadDataPager Name="pager" telerik:StyleManager.Theme="Fluent"
 							    ItemCount="{Binding TotalCounts}"         
                                 PageIndex="{Binding PageNumber, Mode=TwoWay}"         
 							    PageSize="15"

@@ -1,9 +1,6 @@
-﻿using Telerik.Windows.Automation.Peers;
-using Telerik.Windows.Controls;
-using System.Windows;
+﻿using Telerik.Windows.Controls;
 using Org.Tao.FW.Common.Infrastructure;
 using Org.Tao.FW.Application;
-using Microsoft.Extensions.Logging;
 using Serilog;
 
 namespace Org.Tao.QuickStart
@@ -15,7 +12,7 @@ namespace Org.Tao.QuickStart
     {        
         public Shell()
         {            
-            this.InitializeComponent();            
+            this.InitializeComponent();
             this.init();
         }
 

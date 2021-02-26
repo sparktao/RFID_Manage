@@ -31,6 +31,7 @@
     <DependentUpon>App.xaml</DependentUpon>
     <SubType>Code</SubType>
   </Compile>
+  <Compile Include="CustomLocalizationManager.cs" />
   <Compile Include="QSFSplashScreenManager.cs" />
   <Compile Include="Shell.xaml.cs" />
 </ItemGroup>

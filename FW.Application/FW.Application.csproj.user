@@ -7,6 +7,9 @@
     <Compile Update="UserControls\DataImport.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\DataStatsPivot.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\TagDataManage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,6 +19,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="UserControls\DataImport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\DataStatsPivot.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\HamburgerNavigation.xaml">

@@ -15,12 +15,17 @@ namespace Org.Tao.QuickStart
     {
         public App()
         {
-            //FluentPalette.Palette.FontFamily = new FontFamily("微软雅黑");
-            //FluentPalette.Palette.FontSize = 14;
-
             // 使用fluent全局样式            
-            StyleManager.ApplicationTheme = new FluentTheme();
+            //StyleManager.ApplicationTheme = new FluentTheme();
 
+            FluentPalette.Palette.FontFamily = new FontFamily("微软雅黑");
+            FluentPalette.Palette.FontSize = 14;
+            // telerik本地化设置
+            LocalizationManager.Manager = new CustomLocalizationManager();
+            FrameworkElement.StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata
+            {                
+                DefaultValue = FindResource(typeof(Window))
+            });
 
             // 配置文件
             var configuration = new ConfigurationBuilder()                
