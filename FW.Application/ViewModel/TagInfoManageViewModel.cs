@@ -1,20 +1,16 @@
-﻿using Org.Tao.DB.Data;
-using Org.Tao.DB.Data.Dao;
+﻿using Org.Tao.DB.Data.Dao;
 using Org.Tao.DB.Data.Model;
 using Org.Tao.DB.Model;
 using Serilog;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using Telerik.Windows.Controls;
 
 namespace Org.Tao.FW.Application.ViewModel
 {
     public class TagInfoManageViewModel : ViewModelBase
     {
-        private RadDesktopAlertManager desktopAlertManager;
         private TagInfoService tagInfoService = new TagInfoService();
         private List<TagInfo> _tagList;
         public List<TagInfo> TagList
@@ -103,7 +99,6 @@ namespace Org.Tao.FW.Application.ViewModel
         public TagInfoManageViewModel()
         {
             this.PageSize = 15;
-            this.desktopAlertManager = new RadDesktopAlertManager(AlertScreenPosition.BottomRight, 5d);
         }
 
         public void InitData()
@@ -156,24 +151,22 @@ namespace Org.Tao.FW.Application.ViewModel
 
                     if (result != null)
                     {
-                        this.desktopAlertManager.ShowAlert(new DesktopAlertParameters
+                        RadWindow.Alert(new DialogParameters
                         {
                             Header = "标签管理",
-                            Content = "新建标签成功.",
-                            ShowDuration = 1000
-                        });
+                            Content = "新建标签成功!"
+                        });                        
                         Log.Debug("新建公告{0}成功.", tagInfoData.TagName);
                         //插入记录后更新列表
                         IsBusy = true;
                     }
                     else
                     {
-                        this.desktopAlertManager.ShowAlert(new DesktopAlertParameters
+                        RadWindow.Alert(new DialogParameters
                         {
                             Header = "标签管理",
-                            Content = "新建标签失败.",
-                            ShowDuration = 1000
-                        });
+                            Content = "新建标签失败!"
+                        });                        
                     }
                 }
                 else
@@ -183,23 +176,21 @@ namespace Org.Tao.FW.Application.ViewModel
                     TagInfo result = await tagInfoService.Update(tagInfoData);
                     if (result != null)
                     {
-                        this.desktopAlertManager.ShowAlert(new DesktopAlertParameters
+                        RadWindow.Alert(new DialogParameters
                         {
                             Header = "标签管理",
-                            Content = "更新标签成功.",
-                            ShowDuration = 1000
-                        });
+                            Content = "更新标签成功!"
+                        });                        
                         Log.Debug("修改标签{0}成功.", (e.NewData as TagInfo).TagName);
                         //插入记录后更新列表
                         IsBusy = true;
                     }
                     else
                     {
-                        this.desktopAlertManager.ShowAlert(new DesktopAlertParameters
+                        RadWindow.Alert(new DialogParameters
                         {
                             Header = "标签管理",
-                            Content = "更新标签失败.",
-                            ShowDuration = 1000
+                            Content = "更新标签失败!"
                         });
                     }
                 }

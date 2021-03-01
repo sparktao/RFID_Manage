@@ -12,7 +12,6 @@ namespace Org.Tao.FW.Application.ViewModel
     public class TagDataManageViewModel : ViewModelBase
     {
 
-        private RadDesktopAlertManager desktopAlertManager;
         private TagDataService tagDataService = new TagDataService();
         private List<TagData> _tagList;
         public List<TagData> TagList
@@ -100,7 +99,6 @@ namespace Org.Tao.FW.Application.ViewModel
         public TagDataManageViewModel()
         {
             this.PageSize = 15;
-            this.desktopAlertManager = new RadDesktopAlertManager(AlertScreenPosition.BottomRight, 5d);
         }
 
         public void InitData()

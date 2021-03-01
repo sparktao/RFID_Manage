@@ -10,7 +10,6 @@ namespace Org.Tao.FW.Application.ViewModel
     public class DataStatsPivotViewModel : ViewModelBase
     {
         private TagDataService tagDataService = new TagDataService();
-        private RadDesktopAlertManager desktopAlertManager;
         private List<TagData> _tagDataList;
         public List<TagData> TagDataList
         {
@@ -61,18 +60,16 @@ namespace Org.Tao.FW.Application.ViewModel
         public DataStatsPivotViewModel()
         { 
             this.QueryCommand = new DelegateCommand(this.OnQueryCommand);
-            this.desktopAlertManager = new RadDesktopAlertManager(AlertScreenPosition.BottomRight, 5d);
         }
 
         private async void OnQueryCommand(object obj)
         {
             if (String.IsNullOrEmpty(QueryTerminalName) || String.IsNullOrEmpty(QueryTagName))
             {
-                this.desktopAlertManager.ShowAlert(new DesktopAlertParameters
-                {
-                    Header = "数据统计",
-                    Content = "查询条件不能为空.",
-                    ShowDuration = 1000
+                RadWindow.Alert(new DialogParameters
+                {      
+                    Header= "数据统计",
+                    Content = "查询条件不能为空!"
                 });
                 return;
             }
